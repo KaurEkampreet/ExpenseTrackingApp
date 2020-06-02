@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Budget Tracking Application"
+             x:Class="ExpenseTrackingApp.MainPage">
+
+    <StackLayout Margin="10,35,10,10">
+        <!-- Place new controls here -->
+        <Label Text="New User? Please set up your budget!" 
+           HorizontalOptions="Center" FontAttributes="Bold"  FontSize="Large"
+           VerticalOptions="CenterAndExpand" />
+
+        <Editor x:Name="budget"
+                Text="{Binding Budget}"
+                Placeholder="Enter your budget"
+                HeightRequest="100" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
+            <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"/>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

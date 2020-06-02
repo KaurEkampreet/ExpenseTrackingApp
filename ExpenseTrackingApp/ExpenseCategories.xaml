@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExpenseTrackingApp.ExpenseCategories">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Editor x:Name="categories" Placeholder="Name" Text="{Binding Text}" Grid.Row="0" FontSize="Large" PlaceholderColor="Black" />
+                <Entry Placeholder="Amount" Grid.Row="1" FontSize="Large" PlaceholderColor="Black" />
+                <Entry Placeholder="DateOfPurchase" Grid.Row="2" FontSize="Large" PlaceholderColor="Black" />
+                <Picker x:Name="picker" Grid.Row="3" Title="Select a Category" FontSize="Large"
+                        TitleColor="Red">
+                    <Picker.Items>
+                        <x:String>Food</x:String>
+                        <x:String>Travel</x:String>
+                        <x:String>Insurance</x:String>
+                        <x:String>Utilities</x:String>
+                        <x:String>Other Miscellaneous</x:String>
+                    </Picker.Items>
+                </Picker>
+                <StackLayout Orientation="Horizontal" Grid.Row="4" Margin="10,15,10,10" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Save" Clicked="OnSaveButtonClicked" />
+                    <Button Text="Cancel" Clicked="OnCancelButtonClicked"  />
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
