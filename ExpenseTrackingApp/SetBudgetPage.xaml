@@ -7,16 +7,15 @@
              Title="Budget Tracking Application"
              x:Class="ExpenseTrackingApp.MainPage">
 
-    <StackLayout Margin="10,35,10,10">
+    <StackLayout Margin="20,35,20,20">
         <!-- Place new controls here -->
         <Label Text="New User? Please set up your budget!" 
-           HorizontalOptions="Center" FontAttributes="Bold"  FontSize="Large"
-           VerticalOptions="CenterAndExpand" />
+           HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" FontSize="Large"
+               TextDecorations="None" FontAttributes="Bold" TextColor="Black" />
 
         <Editor x:Name="budget"
-                Text="{Binding Budget}"
-                Placeholder="Enter your budget"
-                HeightRequest="100" />
+                Placeholder="Enter your budget" PlaceholderColor="Black"
+                HeightRequest="70" />
 
         <Grid>
             <Grid.ColumnDefinitions>

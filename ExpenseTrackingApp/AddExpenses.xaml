@@ -6,23 +6,53 @@
              mc:Ignorable="d"
              x:Class="ExpenseTrackingApp.AddExpenses">
     <ContentPage.Content>
+        <ScrollView BackgroundColor="Black">
         <StackLayout>
-            <!--<Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />-->
 
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <!--<Label Text="BudgetAmount   :"  FontAttributes="Bold"  Grid.Row="0" Margin="15,0,0,0" Grid.ColumnSpan="2"/>-->
-                <Button Text="Add Expenses" Clicked="AddExpensesButtonClicked" />
-                <!--<Editor x:Name="editor" Text="{Binding Name}"/>-->
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label x:Name="BudgetLabel"  TextColor="White" FontSize="Large" Grid.Row="1"/>
+                    <Label x:Name="RemainingAmountLabel" TextColor="Black" FontSize="Large" Grid.Row="2"/>
+                    <Button Text="Add Expenses" FontSize="16" TextColor="White" BackgroundColor="Blue" Clicked="AddExpensesButtonClicked" Grid.Row="3" />
+                    <Label Text="Expenses List :-" FontSize="25" TextColor="Coral" Grid.Row="4"/>
+
+                    <ListView x:Name="listview" Grid.Row="5" RowHeight="150">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="180">
+                                <Frame OutlineColor="GreenYellow"  HeightRequest="1000" BackgroundColor="Black" 
+                                        Padding="1"  >
+                                    <StackLayout>
+                                        <StackLayout Orientation="Vertical"  VerticalOptions="FillAndExpand">
+                                            <Label Text="{x:Binding Name}"
+                                                       FontSize="Large" TextColor="White"/>
+                                            <Label 
+                                                Text="{x:Binding Amount}" FontSize="Large" TextColor="White"/>
+
+                                            <Label Text="{x:Binding Category}" FontSize="Large" TextColor="White"/>
 
 
-                <!--<Label Text="{Binding BudgetAm}" x:Name="budget" FontAttributes="Bold" FontSize="25" Grid.Column="1" Grid.ColumnSpan="2" Margin="30,0,0,0" >-->
-                <!--</Label>-->
+                                            <Label Text="{x:Binding DateOfPurchase}" FontSize="Large" TextColor="White"/>
+
+
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
             </Grid>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

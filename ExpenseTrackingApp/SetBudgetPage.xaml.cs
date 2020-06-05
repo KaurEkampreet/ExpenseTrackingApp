@@ -37,12 +37,7 @@ namespace ExpenseTrackingApp
      
         private void OnDeleteButtonClicked(object sender, EventArgs e)
         {
-            //var delete = (Expenses)BindingContext;
-            //if (File.Exists(delete.Filename))
-            //{
-            //    File.Delete(delete.Filename);
-            //}
-            //await Navigation.PopModalAsync();
+            
         }
     }
 }
