@@ -6,52 +6,43 @@
              mc:Ignorable="d"
              x:Class="ExpenseTrackingApp.AddExpenses">
     <ContentPage.Content>
-        <ScrollView BackgroundColor="Black">
-        <StackLayout>
-
-            <Grid>
+        <ScrollView BackgroundColor="White">
+            <StackLayout>
+                <Grid>
                 <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Label x:Name="BudgetLabel"  TextColor="White" FontSize="Large" Grid.Row="1"/>
-                    <Label x:Name="RemainingAmountLabel" TextColor="Black" FontSize="Large" Grid.Row="2"/>
+                    <Label x:Name="Budget Label"  TextColor="Black" FontSize="Large" Grid.Row="1"/>
+                    <Label x:Name="Remaining Amount Label" TextColor="Black" FontSize="Large" Grid.Row="2"/>
                     <Button Text="Add Expenses" FontSize="16" TextColor="White" BackgroundColor="Blue" Clicked="AddExpensesButtonClicked" Grid.Row="3" />
                     <Label Text="Expenses List :-" FontSize="25" TextColor="Coral" Grid.Row="4"/>
 
                     <ListView x:Name="listview" Grid.Row="5" RowHeight="150">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell Height="180">
-                                <Frame OutlineColor="GreenYellow"  HeightRequest="1000" BackgroundColor="Black" 
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Height="180">
+                                    <Frame OutlineColor="LightGray"  HeightRequest="1000" BackgroundColor="white" 
                                         Padding="1"  >
-                                    <StackLayout>
-                                        <StackLayout Orientation="Vertical"  VerticalOptions="FillAndExpand">
-                                            <Label Text="{x:Binding Name}"
-                                                       FontSize="Large" TextColor="White"/>
-                                            <Label 
-                                                Text="{x:Binding Amount}" FontSize="Large" TextColor="White"/>
-
-                                            <Label Text="{x:Binding Category}" FontSize="Large" TextColor="White"/>
-
-
-                                            <Label Text="{x:Binding DateOfPurchase}" FontSize="Large" TextColor="White"/>
-
-
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Image Source="{x:Binding CategoryIcon}" WidthRequest="50" HeightRequest="50"/>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="{x:Binding Name, StringFormat='    Name:       {0}'}" FontSize="Large" TextColor="Black"/>
+                                                <Label  Text="{x:Binding DateOfPurchase, StringFormat='    Date:         {0:MM dd yyyy}'}"  FontSize="Large" TextColor="Black" />
+                                                <Label Text="{x:Binding Amount, StringFormat='    Amount:   ${0}'}"  FontSize="Large" TextColor="Black"/>
+                                                <Label Text="{x:Binding Category, StringFormat='    Category:  {0}'}"  FontSize="Large" TextColor="Black"/>
+                                            </StackLayout>
                                         </StackLayout>
-                                    </StackLayout>
-                                </Frame>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-
-
-            </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="ExpenseTrackingApp.ExpenseCategories">
     <ContentPage.Content>
+       
         <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
@@ -31,17 +32,19 @@
                 <Picker x:Name="pickerCategory"  Grid.Row="5" 
                 Title="Select a Category" FontSize="Large" 
                 TitleColor="Black">
-                    <Picker.Items>
-                        <x:String>Food</x:String>
-                        <x:String>Travel</x:String>
-                        <x:String>Insurance</x:String>
-                        <x:String>Utilities</x:String>
-                        <x:String>Miscellaneous</x:String>
-                    </Picker.Items>
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Food</x:String>
+                            <x:String>Travel</x:String>
+                            <x:String>Insurance</x:String>
+                            <x:String>Utilities</x:String>
+                            <x:String>Miscellaneous</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
                 </Picker>
                 <StackLayout Orientation="Horizontal" Grid.Row="6" Margin="10,15,10,10" HorizontalOptions="CenterAndExpand">
                     <Button Text="Save" Clicked="OnSaveButtonClicked" />
-                    <Button Text="Cancel" Clicked="OnCancelButtonClicked"  />
+                    <Button Text="Cancel" Clicked="OnCancelButtonClicked"/>
                 </StackLayout>
             </Grid>
         </StackLayout>

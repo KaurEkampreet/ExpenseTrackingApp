@@ -7,17 +7,17 @@ namespace ExpenseTrackingApp
 {
     public partial class App : Application
     {
-        public static bool SetInitialBudget { get; internal set; }
-        public static string BudgetFile { get; internal set; }
 
         public App()
         {
             InitializeComponent();
+            
 
-           // MainPage = new MainPage();
+            // MainPage = new MainPage();
             var expenseBudgetPath = Path.Combine
                 (Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                "ExpenseBudget.txt");
+            //File.Delete(expenseBudgetPath);
 
             if (File.Exists(expenseBudgetPath))
             {
@@ -32,6 +32,7 @@ namespace ExpenseTrackingApp
             {
                 MainPage = new MainPage();
             }
+            
 
         }
 

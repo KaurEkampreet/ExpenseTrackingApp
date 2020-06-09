@@ -19,10 +19,12 @@ namespace ExpenseTrackingApp
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
         private async void OnSaveButtonClicked(object sender, EventArgs e)
         {
+
             var expenseBudgetPath = Path.Combine
                 (Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                "ExpenseBudget.txt");
@@ -32,7 +34,7 @@ namespace ExpenseTrackingApp
             {
                 Budget = budget.Text
             });
-
+            //File.Delete(expenseBudgetPath);
         }    
      
         private void OnDeleteButtonClicked(object sender, EventArgs e)

@@ -15,45 +15,46 @@ namespace ExpenseTrackingApp
     public partial class ExpenseCategories : ContentPage
     {
         public DateTime SelectedDate { get; set; }
+        public string Budget { get; set; }
         public ExpenseCategories()
         {
             InitializeComponent();
-              
+            pickerCategory.ItemsSource = Expenses.CATEGORIES;
+
         }
-        private async void OnSaveButtonClicked(object sender, EventArgs e)
+        private void OnSaveButtonClicked(object sender, EventArgs e)
         {
         var expensePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.
             LocalApplicationData),
             $"{Path.GetRandomFileName()}.expenses.txt");
-        var expenses = new Expenses
+
+            var expenses = new Expenses
         {
 
             Name = nameLabel.Text,
             Amount = Convert.ToDecimal(amountLabel.Text),
             DateOfPurchase = SelectedDate,
-            Category = pickerCategory.SelectedItem.ToString()
+           Category = pickerCategory.SelectedItem.ToString()
 
         };
 
 
         File.WriteAllText(expensePath, expenses.toString());
+            Navigation.PopModalAsync();
 
 
 
-        await Navigation.PushModalAsync(new AddExpenses
-        {
-
-            Budget = File.ReadAllText
-           ("data/user/0/com.companyname.expensetrackingapp/files/.local/share/ExpenseBudget.txt")
-
-
-        });
+        //    await Navigation.PushModalAsync(new AddExpenses
+        //{
+        //    Budget = File.ReadAllText
+        //   ("data/user/0/com.companyname.expensetrackingapp/files/.local/share/ExpenseBudget.txt")
+        //});
 
         }
 
         private void OnCancelButtonClicked(object sender, EventArgs e)
         {
-
+            Navigation.PopModalAsync();
         }
 
         private void MainDatePicker_DateSelected(object sender, DateChangedEventArgs e)
