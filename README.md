@@ -5,8 +5,4 @@
 * Upon tapping on that button, the user should be shown a modal that allows them to input details for their expenses: the name, amount, date the purchase was made on, and an icon to categorize the item. The modal should allow the user to either cancel or save the entry that they make.
 * If the expense is saved, it should then be rendered in a list on the main screen that contains the button to add further expenses
 
-# Project Demo
-https://www.youtube.com/watch?v=-tdcLh1eg_I&feature=youtu.be
 
-# Kanban Board
-https://github.com/GSCHALLA/Expense-Tracking-App/projects
